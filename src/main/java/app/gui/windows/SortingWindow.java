@@ -31,7 +31,7 @@ public class SortingWindow {
         algoTypeLabel.setFont(new Font(null, Font.BOLD, 19));
         algoTypeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        messageLabel = new JLabel("Enter length of arrays");
+        messageLabel = new JLabel("Enter range of arrays generating");
         messageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         topPanel.add(Box.createVerticalStrut(5));
@@ -77,7 +77,7 @@ public class SortingWindow {
         resultPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         submitButton = new JButton("Submit");
-        submitButton.addActionListener(e -> ButtonUtils.submit());
+        submitButton.addActionListener(e -> ButtonUtils.submit(fromTextField, toTextField, randomGeneration));
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BorderLayout());
