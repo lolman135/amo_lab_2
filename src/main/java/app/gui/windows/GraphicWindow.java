@@ -11,10 +11,10 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 public class GraphicWindow {
 
-    private JFrame frame;
-    private List<Integer> elementsCountList;
-    private List<Integer> operationsCountList;
-    private List<Long> durationsList;
+    private final JFrame frame;
+    private final List<Integer> elementsCountList;
+    private final List<Integer> operationsCountList;
+    private final List<Long> durationsList;
 
     public GraphicWindow(List<Long> durationsList, List<List<Integer>> lists, List<Integer> operationsCountList) {
         this.durationsList = durationsList;
@@ -23,16 +23,18 @@ public class GraphicWindow {
 
         frame = new JFrame("Sorting Performance Analysis");
         frame.setSize(800, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new java.awt.GridLayout(1, 2));
 
-        frame.add(createChartPanel("Operations per Elements", "Elements", "Operations", elementsCountList, operationsCountList));
-        frame.add(createChartPanel("Time per Elements", "Elements", "Time (ns)", elementsCountList, durationsList));
+        frame.add(createChartPanel("Operations per Elements", "Elements", "Operations",
+                elementsCountList, operationsCountList));
+        frame.add(createChartPanel("Time per Elements", "Elements", "Time (ns)",
+                elementsCountList, durationsList));
 
         frame.setVisible(true);
     }
 
-    private ChartPanel createChartPanel(String title, String xLabel, String yLabel, List<Integer> xData, List<? extends Number> yData) {
+    private ChartPanel createChartPanel(String title, String xLabel, String yLabel, List<Integer> xData,
+                                        List<? extends Number> yData) {
         XYSeries series = new XYSeries(title);
         for (int i = 0; i < xData.size(); i++) {
             series.add(xData.get(i).doubleValue(), yData.get(i).doubleValue());

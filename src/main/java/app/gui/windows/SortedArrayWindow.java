@@ -30,7 +30,6 @@ public class SortedArrayWindow {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setPreferredSize(new Dimension(300, 250));
 
-
         mainPanel = new JPanel(new BorderLayout());
         mainPanel.add(scrollPane, BorderLayout.CENTER);
 
